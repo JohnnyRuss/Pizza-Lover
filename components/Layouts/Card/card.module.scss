@@ -1,0 +1,30 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.card {
+  @include flexBox(column);
+
+  .figure {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  .productInfo {
+    padding: 2rem;
+    @include flexBox(column);
+    gap: 1rem;
+  }
+
+  .productTitle {
+    font-weight: weight('boldWeight');
+    text-transform: uppercase;
+    color: color('orangeColor');
+  }
+
+  .productPrice {
+    font-weight: weight('boldWeight');
+  }
+
+  .productDetails {
+    font-size: size('smallSize');
+  }
+}

@@ -1,0 +1,41 @@
+@use '../../../styles//helpers/helpers' as *;
+
+.call {
+  flex: 1;
+  @include flexBox;
+  @include flexProperty(flex-start, center);
+  gap: 0.5rem;
+
+  @include respond(tab-portrate) {
+    flex: 0;
+    gap: 1rem;
+  }
+
+  .figure {
+    width: 4.5rem;
+    height: 4.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: color('whiteColor');
+
+    & img {
+      transform: scale(0.8);
+    }
+
+    @include respond(phone-small) {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+
+  .text {
+    width: 10rem;
+    & > p:first-child {
+      text-transform: capitalize;
+    }
+
+    & > p:last-child {
+      font-size: size('smallSize');
+    }
+  }
+}

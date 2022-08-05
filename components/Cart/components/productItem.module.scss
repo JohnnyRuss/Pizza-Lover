@@ -1,0 +1,17 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.row {
+  .figure {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .productTitle {
+    text-transform: uppercase;
+    color: color('orangeColor');
+  }
+
+  .price {
+    font-weight: weight('boldWeight');
+  }
+}

@@ -1,0 +1,9 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.btn {
+  background: color('orangeColor');
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  font-weight: weight('mediumWeight');
+}

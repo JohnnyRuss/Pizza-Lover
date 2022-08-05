@@ -1,0 +1,14 @@
+@use "../../../styles/helpers/helpers" as *;
+
+.slider {
+  height: 43vw;
+
+  .sliderItem{
+
+  }
+
+  .sliderImg{
+    @include fitImage;
+    width:20rem;
+  }
+}

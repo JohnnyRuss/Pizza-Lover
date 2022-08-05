@@ -1,0 +1,24 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.cart {
+  max-width: $container-width;
+  margin: 0 auto;
+  margin-top: 5rem;
+  @include flexBox;
+  gap: 4rem;
+
+  @include respond(tab-landscape) {
+    padding: 0 3rem;
+  }
+
+  @include respond(tab-portrate) {
+    flex-direction: column;
+  }
+
+  .info {
+    @include respond(tab-portrate) {
+      flex: 0;
+      width: 100%;
+    }
+  }
+}

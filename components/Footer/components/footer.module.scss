@@ -1,0 +1,121 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.footer {
+  height: calc(100vh - 6rem);
+  @include flexBox;
+  margin-top: 12rem;
+
+  @include respond(tab-portrate) {
+    flex-direction: column;
+  }
+
+  .figure {
+    flex: 2;
+
+    @include respond(tab-landscape) {
+      flex: 3;
+    }
+
+    @include respond(tab-portrate) {
+      flex: 5;
+      height: 40vh;
+
+      & img {
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+  }
+
+  .details {
+    flex: 4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    column-gap: 3rem;
+    padding: 14rem 4rem 6rem;
+    background: color('blcColor');
+
+    @include respond(tab-landscape) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: start;
+    }
+
+    @include respond(tab-portrate) {
+      flex: 1;
+      padding: 8rem 4rem 6rem;
+      display: grid;
+      grid-template: min-content repeat(1, 1fr) / repeat(2, 1fr);
+    }
+
+    @include respond(phone) {
+      padding: 6rem 2rem 4rem;
+    }
+  }
+
+  .motivation {
+    font-size: size('largeSize');
+    text-transform: uppercase;
+    font-weight: weight('bolderWeight');
+
+    @include respond(tab-portrate) {
+      grid-column: span 2;
+      grid-row: 1;
+      margin-bottom: 4rem;
+    }
+
+    @include respond(phone) {
+      font-size: size('bigSize');
+    }
+  }
+
+  .hoursList {
+    @include respond(tab-portrate) {
+      grid-row: 2;
+      grid-column: 2;
+    }
+
+    @include respond(phone) {
+      justify-self: end;
+    }
+  }
+
+  .adressList {
+    @include respond(tab-portrate) {
+      grid-row: 2;
+      grid-column: 1;
+    }
+
+    @include respond(phone) {
+      justify-self: end;
+    }
+  }
+
+  .list {
+    @include flexBox(column);
+    gap: 1.5rem;
+    font-size: size('smallSize');
+
+    @include respond(tab-landscape) {
+      flex-direction: row;
+      gap: 3rem;
+    }
+
+    @include respond(tab-portrate) {
+      flex-direction: column;
+      gap: 3rem;
+    }
+  }
+
+  .title {
+    color: color('goldenColor');
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+    font-size: size('regullarSize');
+  }
+
+  .listItem {
+    @include flexBox(column);
+    gap: 0.3rem;
+  }
+}

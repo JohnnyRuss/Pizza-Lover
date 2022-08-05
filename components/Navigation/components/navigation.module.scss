@@ -1,0 +1,81 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.navigation {
+  @include flexBox;
+  @include flexProperty(space-between, center);
+  padding: 0 3rem;
+  height: 6rem;
+  background: color('orangeColor');
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  @include boxShadowBlack(0rem, 1rem, 0.3);
+
+  @include respond(tab-portrate) {
+    justify-content: flex-start;
+  }
+
+  @include respond(phone-small) {
+    padding: 0 1rem;
+  }
+}
+
+.inp {
+  display: none;
+
+  @include respond(tab-portrate) {
+    & ~ .navigation > :nth-child(2) {
+      display: none;
+    }
+
+    &:checked ~ .burgerBtn::before {
+      transform: scale(100);
+    }
+
+    &:checked ~ .navigation {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    &:checked ~ .navigation > :nth-child(1),
+    &:checked ~ .navigation > :nth-child(3) {
+      display: none;
+    }
+
+    &:checked ~ .navigation > :nth-child(2) {
+      display: flex;
+      order: 1;
+      gap: 2rem;
+    }
+  }
+
+  & + .burgerBtn {
+    display: none;
+
+    @include respond(tab-portrate) {
+      display: block;
+      position: fixed;
+      z-index: 1000;
+      right: 1rem;
+      top: 0.5rem;
+      width: 5rem;
+      height: 5rem;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        position: fixed;
+        z-index: -1;
+        right: 1rem;
+        top: 0.5rem;
+        transition: all 0.8s ease;
+        // background: green;
+      }
+    }
+  }
+}

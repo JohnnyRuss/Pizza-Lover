@@ -1,0 +1,23 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.menu {
+  flex: 4;
+  @include flexBox;
+  @include flexProperty(space-between, center);
+  text-transform: capitalize;
+
+  @include respond(tab-portrate) {
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 0;
+  }
+
+  .logo {
+    width: 12rem;
+    height: 5rem;
+
+    @include respond(tab-portrate) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.products {
+  max-width: $container-width;
+  margin: 0 auto;
+  margin-top: 14rem;
+
+  @include respond(tab-landscape) {
+    padding: 0 3rem;
+    margin-top: 10rem;
+  }
+
+  @include respond(phone) {
+    margin-top: 6rem;
+  }
+
+  .title {
+    text-transform: capitalize;
+    font-size: size('headingSmallSize');
+    text-align: center;
+
+    @include respond(tab-portrate) {
+      font-size: size('headingSecondarySize');
+    }
+
+    @include respond(phone-small) {
+      font-size: size('headingSecondarySmallSize');
+    }
+  }
+
+  .description {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .productsList {
+    margin-top: 8rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+
+    @include respond(phone) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(phone-small) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
