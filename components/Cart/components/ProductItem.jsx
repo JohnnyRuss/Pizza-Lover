@@ -1,17 +1,19 @@
 import styles from './productItem.module.scss';
 import { Img } from '../../Interface';
 
-function ProductItem() {
+function ProductItem({product}) {
   return (
     <tr className={styles.row}>
       <td>
         <Img src='/img/pizza.png' className={styles.figure} />
       </td>
-      <td className={styles.productTitle}>coralzo</td>
-      <td>double ingredients, spicy sauce</td>
-      <td>$19.90</td>
-      <td>2</td>
-      <td className={styles.price}>39.80</td>
+      <td className={styles.productTitle}>{product.productName}</td>
+      <td>
+        {product?.extras?.map(ext=> <span key={ext._id}>{ext.text}</span>)}
+      </td>
+      <td>{product.defaultPrice}</td>
+      <td>{product.quantity}</td>
+      <td className={styles.price}>{product.price * product.quantity}</td>
     </tr>
   );
 }

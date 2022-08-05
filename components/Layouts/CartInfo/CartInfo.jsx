@@ -1,13 +1,13 @@
 import styles from './cartInfo.module.scss';
 import { BTN, Link } from '../../Interface';
 
-function CartInfo({ className }) {
+function CartInfo({ className, total }) {
   return (
     <div className={`${styles.cartInfo} ${className}`}>
       <h5 className={styles.title}>cart total</h5>
       <p className={styles.detail}>
         <span>subtotal:</span>
-        <span className={styles.value}>$79:60</span>
+        <span className={styles.value}>${total}</span>
       </p>
       <p className={styles.detail}>
         <span>discount:</span>
@@ -15,7 +15,7 @@ function CartInfo({ className }) {
       </p>
       <p className={styles.detail}>
         <span>total:</span>
-        <span className={styles.value}>$79:60</span>
+        <span className={styles.value}>${total}</span>
       </p>
       <BTN>submit</BTN>
     </div>

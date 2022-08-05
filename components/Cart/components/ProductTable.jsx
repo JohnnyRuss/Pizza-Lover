@@ -1,7 +1,7 @@
 import styles from './productTable.module.scss';
 import ProductItem from './ProductItem';
 
-function ProductTable() {
+function ProductTable({ products }) {
   return (
     <div className={styles.tableBox}>
       <table className={styles.productTable}>
@@ -13,8 +13,9 @@ function ProductTable() {
           <th>quantity</th>
           <th>total</th>
         </tr>
-        <ProductItem />
-        <ProductItem />
+        {products?.map((product) => (
+          <ProductItem product={product} key={product.productId} />
+        ))}
       </table>
     </div>
   );
