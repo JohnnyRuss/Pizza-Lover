@@ -1,0 +1,8 @@
+.customerTable {
+  width: 100%;
+
+  & tr th {
+    text-align: start;
+    text-transform: capitalize;
+  }
+}

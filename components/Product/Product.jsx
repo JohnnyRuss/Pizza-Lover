@@ -4,7 +4,11 @@ import { useDispatch } from 'react-redux';
 import { addProduct } from '../../store/reducers/cartReducer';
 
 import styles from './components/product.module.scss';
-import { Img, BTN } from '../Interface';
+import { Img } from '../Interface';
+import ProductDetails from './components/ProductDetails';
+import SizeForm from './components/SizeForm';
+import IngredientsForm from './components/IngredientsForm';
+import QuantityForm from './components/QuantityForm';
 
 function Product({ data }) {
   const dispatch = useDispatch();
@@ -59,69 +63,13 @@ function Product({ data }) {
     <main className={styles.product}>
       <Img src='/img/pizza.png' className={styles.figure} />
       <div className={styles.productDetails}>
-        <h2 className={styles.title}>{data?.title}</h2>
-        <p className={styles.price}>${price}</p>
-        <p className={styles.description}>{data?.description}</p>
-        <p>choose the size</p>
-        <form className={styles.sizesForm}>
-          <label className={styles.size} htmlFor='small'>
-            <Img src='/img/size.png' className={styles.sizeFigure} />
-            <input
-              type='checkbox'
-              name='small'
-              id='small'
-              className={styles.inp}
-              onChange={(e) => handlePriceBySize(e.target.name)}
-            />
-            <figcaption>small</figcaption>
-          </label>
-          <label className={styles.size} htmlFor='big'>
-            <Img src='/img/size.png' className={styles.sizeFigure} />
-            <input
-              type='checkbox'
-              name='big'
-              id='big'
-              className={styles.inp}
-              onChange={(e) => handlePriceBySize(e.target.name)}
-            />
-            <figcaption>big</figcaption>
-          </label>
-          <label className={styles.size} htmlFor='large'>
-            <Img src='/img/size.png' className={styles.sizeFigure} />
-            <input
-              type='checkbox'
-              name='large'
-              id='large'
-              className={styles.inp}
-              onChange={(e) => handlePriceBySize(e.target.name)}
-            />
-            <figcaption>large</figcaption>
-          </label>
-        </form>
-        <h5 className={styles.ingredientsTitle}>choose additional ingredients</h5>
-        <form className={styles.ingredientsForm}>
-          {data?.extra?.map((ing) => (
-            <label htmlFor={ing.text} className={styles.ingredient} key={ing._id}>
-              <input
-                type='checkbox'
-                name={ing.text}
-                id={ing.text}
-                onChange={(e) => handleExtras(e, ing)}
-              />
-              {ing.text}
-            </label>
-          ))}
-        </form>
-        <form className={styles.quantityForm}>
-          <input
-            type='number'
-            defaultValue='1'
-            onChange={(e) => handlePriceByQuantity(e.target.value)}
-          />
-          <BTN className={styles.btn} onClick={handleAddToCart}>
-            add to cart
-          </BTN>
-        </form>
+        <ProductDetails title={data?.title} price={price} description={data?.description} />
+        <SizeForm handlePriceBySize={handlePriceBySize} />
+        <IngredientsForm extra={data.extra} handleExtras={handleExtras} />
+        <QuantityForm
+          handlePriceByQuantity={handlePriceByQuantity}
+          handleAddToCart={handleAddToCart}
+        />
       </div>
     </main>
   );

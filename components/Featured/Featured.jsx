@@ -23,8 +23,6 @@ function Featured() {
         {featuredImages.map((img) => (
           <SwiperSlide key={uid(6)} tag='li' className={styles.sliderItem}>
             <Image
-            //   width={100}
-            //   height={100}
               layout='fill'
               src={img.img}
               alt='img'

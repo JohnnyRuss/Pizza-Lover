@@ -1,11 +1,11 @@
 export const featuredImages = [
   {
-    img: '/img/feature-1.jpg',
+    img: '/img/featured.png',
   },
   {
-    img: '/img/feature-2.jpg',
+    img: '/img/featured2.png',
   },
   {
-    img: '/img/feature-3.jpg',
+    img: '/img/featured3.png',
   },
 ];

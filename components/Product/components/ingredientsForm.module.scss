@@ -1,0 +1,19 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.ingredientsTitle {
+  text-transform: capitalize;
+  margin-top: 5rem;
+}
+
+.ingredientsForm {
+  margin-top: 1rem;
+  @include flexBox;
+  gap: 1rem;
+  text-transform: capitalize;
+
+  .ingredient {
+    @include flexBox;
+    font-size: size('smallSize');
+    gap: 0.3rem;
+  }
+}

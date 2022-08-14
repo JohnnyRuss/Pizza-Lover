@@ -1,14 +1,11 @@
-@use "../../../styles/helpers/helpers" as *;
+@use '../../../styles/helpers/helpers' as *;
 
 .slider {
   height: 43vw;
-
-  .sliderItem{
-
-  }
-
-  .sliderImg{
+  @include boxShadowBlack(0, 1rem, 0.3);
+  
+  .sliderImg {
     @include fitImage;
-    width:20rem;
+    width: 20rem;
   }
 }

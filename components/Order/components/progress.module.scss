@@ -1,0 +1,67 @@
+@use '../../../styles/helpers/helpers' as *;
+
+.progressBox {
+  @include flexBox;
+  @include flexProperty(space-between, flex-start);
+  margin-top: 6rem;
+
+  .done,
+  .inProgress,
+  .undone {
+    @include flexBox(column);
+    @include flexProperty(flex-start, center);
+    gap: 0.3rem;
+    text-transform: capitalize;
+  }
+
+  .inProgress .checkedIcon,
+  .undone .checkedIcon {
+    display: none;
+  }
+
+  .inProgress {
+    animation: inProgress 1.5s ease infinite alternate;
+  }
+
+  .undone {
+    opacity: 0.3;
+  }
+
+  %mask {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .paidIcon {
+    @extend %mask;
+    background: url('/img/paid.png') white;
+    background-size: 100%;
+    mask: url('/img/paid.png') 0rem 0rem/4rem 4rem;
+  }
+
+  .bakeIcon {
+    @extend %mask;
+    background: url('/img/bake.png') white;
+    background-size: 100%;
+    mask: url('/img/bake.png') 0rem 0rem/4rem 4rem;
+  }
+
+  .bikeIcon {
+    @extend %mask;
+    background: url('/img/bike.png') white;
+    background-size: 100%;
+    mask: url('/img/bike.png') 0rem 0rem/4rem 4rem;
+  }
+
+  .deliveredIcon {
+    @extend %mask;
+    background: url('/img/delivered.png') white;
+    background-size: 100%;
+    mask: url('/img/delivered.png') 0rem 0rem/4rem 4rem;
+  }
+
+  .checkedIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+}

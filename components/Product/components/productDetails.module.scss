@@ -1,0 +1,18 @@
+@use "../../../styles//helpers/helpers" as *;
+
+.title {
+  text-transform: uppercase;
+  font-size: size('bigSize');
+  margin-top: 2rem;
+}
+
+.price {
+  margin-top: 1rem;
+  color: color('orangeColor');
+  text-decoration: underline;
+}
+
+.description {
+  margin: 3rem 0;
+  font-size: size('smallSize');
+}
